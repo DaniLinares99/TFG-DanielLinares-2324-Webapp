@@ -39,8 +39,8 @@ pipeline{
                     nexusArtifactUploader artifacts: 
                     [[artifactId: "${ArtifactId}", 
                     classifier: '', 
-                    //file: "target/${ArtifactId}-${Version}.war", 
-                    file: "target/${ArtifactId}-0.0.4-SNAPSHOT.war", 
+                    file: "target/${ArtifactId}-${Version}.war", 
+                    //file: "target/${ArtifactId}-0.0.4-SNAPSHOT.war", 
                     type: 'war']], 
                     credentialsId: 'f3e6c4d1-9179-4a7c-bfe8-98f9f4a57044', 
                     groupId: "${GroupId}", 
@@ -49,8 +49,8 @@ pipeline{
                     protocol: 'http', 
                     //repository: "${NexusRepo}",
                     repository: 'TFG-DALG-SNAPSHOT', 
-                    version: '0.0.4-SNAPSHOT'/*,
-                    version: "${Version}"*/
+                    //version: '0.0.4-SNAPSHOT',
+                    version: "${Version}"
                 }
             }
         }
