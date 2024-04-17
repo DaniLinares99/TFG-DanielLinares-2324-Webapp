@@ -34,22 +34,19 @@ pipeline{
         stage ('Publish to Nexus'){
             steps {
                 script {
-                    //def NexusRepo = Version.endsWith("SNAPSHOT") ? "TFG-DALG-SNAPSHOT" : "TFG-DALG-RELEASE"
+                    def NexusRepo = Version.endsWith("SNAPSHOT") ? "TFG-DALG-SNAPSHOT" : "TFG-DALG-RELEASE"
 
                     nexusArtifactUploader artifacts: 
                     [[artifactId: "${ArtifactId}", 
                     classifier: '', 
                     file: "target/${ArtifactId}-${Version}.war", 
-                    //file: "target/${ArtifactId}-0.0.4-SNAPSHOT.war", 
                     type: 'war']], 
                     credentialsId: 'f3e6c4d1-9179-4a7c-bfe8-98f9f4a57044', 
                     groupId: "${GroupId}", 
                     nexusUrl: '172.20.10.160:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    //repository: "${NexusRepo}",
-                    repository: 'TFG-DALG-SNAPSHOT', 
-                    //version: '0.0.4-SNAPSHOT',
+                    repository: "${NexusRepo}",
                     version: "${Version}"
                 }
             }
