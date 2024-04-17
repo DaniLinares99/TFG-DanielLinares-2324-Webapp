@@ -34,7 +34,7 @@ pipeline{
         stage ('Publish to Nexus'){
             steps {
                 script {
-                    def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
+                    //def NexusRepo = Version.endsWith("SNAPSHOT") ? "TFG-DALG-SNAPSHOT" : "TFG-DALG-RELEASE"
 
                     nexusArtifactUploader artifacts: 
                     [[artifactId: "${ArtifactId}", 
@@ -46,8 +46,10 @@ pipeline{
                     nexusUrl: '172.20.10.160:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: "${NexusRepo}", 
-                    version: "${Version}"
+                    //repository: "${NexusRepo}",
+                    repository: 'TFG-DALG-SNAPSHOT', 
+                    version: '0.0.4-SNAPSHOT'/*,
+                    version: "${Version}"*/
                 }
             }
         }
