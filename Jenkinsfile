@@ -87,7 +87,7 @@ pipeline{
         stage ('Deploy to Docker'){
             steps {
                 echo "Deploying Docker ...."
-                /*sshPublisher(publishers: 
+                sshPublisher(publishers: 
                 [sshPublisherDesc(
                     configName: 'Ansible_Controller', 
                     transfers: [
@@ -100,7 +100,7 @@ pipeline{
                     usePromotionTimestamp: false, 
                     useWorkspaceInPromotion: false, 
                     verbose: false)
-                ])*/
+                ])
             }
         }
 

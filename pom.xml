@@ -4,7 +4,7 @@
   <groupId>com.WEB-APP-TFG</groupId>
   <artifactId>WEB-APP-TFG</artifactId>
   <packaging>war</packaging>
-  <version>0.0.4</version>
+  <version>0.0.5</version>
   <name>WEB-APP-TFG</name>
   <url>http://maven.apache.org</url>
   <dependencies>
