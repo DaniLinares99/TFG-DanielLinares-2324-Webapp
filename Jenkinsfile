@@ -66,7 +66,7 @@ pipeline{
         stage ('Deploy to Tomcat'){
             steps {
                 echo "Deploying TOMCAT ...."
-                /*sshPublisher(publishers: 
+                sshPublisher(publishers: 
                 [sshPublisherDesc(
                     configName: 'Ansible_Controller', 
                     transfers: [
@@ -79,7 +79,7 @@ pipeline{
                     usePromotionTimestamp: false, 
                     useWorkspaceInPromotion: false, 
                     verbose: false)
-                ])*/
+                ])
             }
         }
 
